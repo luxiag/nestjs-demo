@@ -24,6 +24,7 @@ OOP面向对象编程
 ## config
 
 ## @nestjs/config
+内置了dotenv
 
 ## ORM
 
