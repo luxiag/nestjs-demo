@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ConfigService } from '@nestjs/config';
+import { ConfigEnum } from 'src/enum/config.enum';
 @Controller('user')
 export class UserController {
   constructor(
@@ -18,7 +19,7 @@ export class UserController {
 
   @Get()
   findAll() {
-    const db = this.configService.get('DB');
+    const db = this.configService.get(ConfigEnum.DB);
     return db;
     // return this.userService.findAll();
   }
