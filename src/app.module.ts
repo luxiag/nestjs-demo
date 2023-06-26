@@ -8,6 +8,10 @@ import * as dotenv from 'dotenv';
 import * as Joi from 'joi';
 import { TypeOrmModule, TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 import { ConfigEnum } from './enum/config.enum';
+import { User } from './user/user.entity';
+import { Profile } from './user/profile.entity';
+import { Logs } from './logs/logs.entity';
+import { Roles } from './roles/roles.entity';
 
 const envFilePath = `.env.${process.env.NODE_ENV || `development`} `;
 
@@ -42,7 +46,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`} `;
           username: ConfigService.get(ConfigEnum.DB_USERNAME),
           password: ConfigService.get(ConfigEnum.DB_PASSWORD),
           database: ConfigService.get(ConfigEnum.DB_DATABASE),
-          entities: [],
+          entities: [User, Profile, Logs, Roles],
           synchronize: true,
           logging: ['error'],
         } as TypeOrmModuleAsyncOptions),
