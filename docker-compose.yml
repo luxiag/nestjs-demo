@@ -8,9 +8,12 @@ services:
     # (this is just an example, not intended to be a production configuration)
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    ports:
+      - 3306:3306
     environment:
+    #数据库 root密码
       MYSQL_ROOT_PASSWORD: example
-  #数据库管理工具
+  #数据库管理工具 容器名称adminer
   adminer:
     image: adminer
     restart: always
